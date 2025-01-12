@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Charity Miner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Donation Slider -->
+    <div id="slider-section" class="section">
+      <h1>Allocate Donations</h1>
+      <input type="range" id="donation-slider" min="0" max="100" value="10">
+      <p>You: <span id="you-percent">10%</span> | Charity: <span id="charity-percent">90%</span></p>
+      <button id="continue-slider">Continue</button>
+    </div>
+
+    <!-- Mining Button -->
+    <div id="mine-section" class="section hidden">
+      <button id="mine-btn" class="spinning-btn"><a href="mine.html">START MINING</a></button>
+    </div>
+
+    <!-- Loading Animation -->
+    <div id="loading-section" class="section hidden">
+      <h1>Mining in Progress...</h1>
+      <div class="loading-animation"></div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
